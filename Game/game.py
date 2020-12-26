@@ -26,9 +26,9 @@ def play():
 
     while True:
         command = input(f"{player_name}, Please enter \"START\" to start the game\n"
-                        "or enter \"HELP\" to show any commands ")
+                        "or enter \"HELP\" to show any commands ").lower()
 
-        if command.lower() == "start":
+        if command == "start":
             print(f'Your enemy name is {enemy_name}!')
 
             try:
@@ -57,15 +57,15 @@ def play():
             except InvalidLiteral:
                 print('\nThere is no lizard and Spock in this game\n')
 
-        if command.lower() == "show scores":
+        if command == "show scores":
             print('\n')
             Scores.show_score()
             print('\n')
 
-        if command.lower() == "help":
+        if command == "help":
             print(f'\nAllowed commands: {", ".join(settings.ALLOWED_COMMANDS)}.\n')
 
-        if command.lower() == "exit":
+        if command == "exit":
             raise KeyboardInterrupt
 
 
