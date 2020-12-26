@@ -95,7 +95,7 @@ class Player:
                 print("It's a draw!")
             elif result == 1:
                 print("You attacked successfully!")
-                Enemy.decrease_lives(enemy_obj, self)
+                enemy_obj.decrease_lives(self)
             else:
                 print("You missed!")
         else:
