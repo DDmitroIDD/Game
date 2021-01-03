@@ -91,6 +91,7 @@ class Player:
         """
         if self.allowed_attack in ALLOWED_MOVES:
             result = self.fight(int(self.allowed_attack), enemy_obj.select_attack())
+
             if result == 0:
                 print("It's a draw!")
             elif result == 1:
@@ -134,7 +135,8 @@ class Scores:
         """
 
         with open('scores.txt', 'r') as scores:
-            scores = [i.split() for i in sorted(scores.readlines(), reverse=True)]
+            sort_scores = sorted(scores.readlines(),reverse=True, key=lambda score: int(score[:2]))
+            scores = [i.split() for i in sort_scores]
             scores_table = range(1, 11 if len(scores) > 10 else len(scores)+1)
             for i in zip(scores_table, scores):
                 print(f'{i[0]}. {i[1][1]} : {i[1][0]} | {i[1][2]} {i[1][3]}')
