@@ -17,6 +17,9 @@ def play():
     """
     level = 1
     player_name = input('Please enter your name ')
+    while not player_name:
+        player_name = input('Please enter your name ')
+
     print(f"  Welcome to the game \"RPS\" {player_name}\n"
           f"_________________________________________\n")
     player = Player(player_name)

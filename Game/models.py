@@ -109,7 +109,7 @@ class Player:
         :return: message with result of defence
         """
         if self.allowed_attack in ALLOWED_MOVES:
-            result = Player.fight(enemy_obj.select_attack(), int(self.allowed_attack))
+            result = self.fight(enemy_obj.select_attack(), int(self.allowed_attack))
             if result == 0:
                 print("It's a draw!")
 
@@ -135,7 +135,7 @@ class Scores:
         """
 
         with open('scores.txt', 'r') as scores:
-            sort_scores = sorted(scores.readlines(),reverse=True, key=lambda score: int(score[:2]))
+            sort_scores = sorted(scores.readlines(), reverse=True, key=lambda score: int(score[:2]))
             scores = [i.split() for i in sort_scores]
             scores_table = range(1, 11 if len(scores) > 10 else len(scores)+1)
             for i in zip(scores_table, scores):

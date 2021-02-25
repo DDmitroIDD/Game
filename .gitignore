@@ -1,4 +1,5 @@
-test.py
 module_requirements.md
 .idea
 __pycache__
+asteroid.py
+apophis_fixture.json
